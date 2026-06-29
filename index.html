@@ -38,13 +38,13 @@ header.nav{position:sticky; top:0; z-index:50; background:rgba(250,246,239,.86);
 .nav-in{display:flex; align-items:center; gap:12px; padding:10px 16px; max-width:1080px; margin:0 auto}
 .brand{display:flex; align-items:center; gap:9px; font-family:Fraunces; font-weight:700; font-size:17px; white-space:nowrap}
 .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(184,134,47,.18)}
-.nav-links{display:flex; gap:3px; overflow-x:auto; margin-left:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch}
+.nav-links{display:flex; gap:3px; overflow-x:auto; margin-left:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; -webkit-mask-image:linear-gradient(90deg,#000 86%,transparent); mask-image:linear-gradient(90deg,#000 86%,transparent)}
 .nav-links::-webkit-scrollbar{display:none}
 .nav-links a{font-size:13.5px; font-weight:600; color:var(--muted); text-decoration:none;
   padding:7px 11px; border-radius:999px; white-space:nowrap; transition:.18s}
 .nav-links a:hover{color:var(--ink); background:#fff}
 .nav-links a.active{color:#fff; background:var(--ink)}
-.hero{position:relative; min-height:88vh; display:flex; align-items:flex-end;
+.hero{position:relative; min-height:88vh; min-height:88svh; display:flex; align-items:flex-end;
   background:#0d1020; color:#fff; overflow:hidden}
 .hero img.bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.62}
 .hero::after{content:""; position:absolute; inset:0;
@@ -66,8 +66,9 @@ section{padding:54px 0}
 .sec-head{margin-bottom:22px}
 .sec-head h2{font-size:clamp(26px,6vw,40px); margin-top:6px; letter-spacing:-.01em}
 .sec-head p{color:var(--muted); margin:.5em 0 0; max-width:680px}
-.legbar{display:flex; gap:0; flex-wrap:wrap; margin:8px 0 28px; border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow)}
-.legbar .seg{flex:1 1 30%; min-width:150px; padding:14px 16px; color:#fff; position:relative}
+.legbar{display:grid; grid-template-columns:1fr; gap:2px; margin:8px 0 28px; border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow)}
+@media(min-width:680px){.legbar{grid-template-columns:repeat(3,1fr)}}
+.legbar .seg{padding:14px 16px; color:#fff; position:relative}
 .legbar .seg .d{font-size:11.5px; opacity:.92; font-weight:600; letter-spacing:.03em}
 .legbar .seg .c{font-family:Fraunces; font-size:18px; font-weight:600; margin-top:2px}
 .legbar .seg .n{font-size:12px; opacity:.9}
@@ -93,7 +94,8 @@ section{padding:54px 0}
 .pill.live{background:#1f7a3f; color:#fff}
 .tag-rec{display:inline-block; background:var(--ink); color:#fff; font-size:11px; font-weight:700;
   padding:3px 9px; border-radius:999px; letter-spacing:.04em; text-transform:uppercase}
-.city{scroll-margin-top:64px}
+.city{scroll-margin-top:70px}
+section[id]{scroll-margin-top:70px}
 .city-banner{position:relative; height:46vh; min-height:300px; display:flex; align-items:flex-end; color:#fff; overflow:hidden}
 .city-banner img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
 .city-banner::after{content:""; position:absolute; inset:0;
@@ -154,7 +156,8 @@ details .det-in{padding:0 0 14px; font-size:14px; color:#3a3f50}
   border-radius:12px; padding:14px 16px; margin-top:8px}
 .costline div{font-size:13px; color:var(--muted)}
 .costline b{display:block; font-family:Fraunces; font-size:17px; color:var(--ink); font-weight:600}
-.budget{background:var(--card); border:1px solid var(--line); border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow)}
+.budget{background:var(--card); border:1px solid var(--line); border-radius:var(--r); overflow-x:auto; box-shadow:var(--shadow)}
+@media(max-width:520px){.budget th,.budget td{padding:10px 8px;font-size:13px}.budget .brl{font-size:11px}.budget td:first-child{white-space:normal}}
 .budget table{width:100%; border-collapse:collapse}
 .budget th,.budget td{padding:13px 14px; text-align:left; border-bottom:1px solid var(--line); font-size:14px}
 .budget th{background:#f4ecdc; font-family:Inter; font-weight:700; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em}
@@ -201,7 +204,7 @@ footer a{color:#e7c887}
 <div class="hero" id="topo">
   <img class="bg" src="img/paris_hero.jpg" alt="Europa">
   <div class="hero-in">
-    <span class="kicker">20 set – 06 out 2026 · 16 dias · casal</span>
+    <span class="kicker">Embarque 20 set · na Europa 21 set–06 out · 16 dias</span>
     <h1>Viena <span class="sep">·</span> Praga <span class="sep">·</span> Paris <span class="sep">·</span> Barcelona</h1>
     <p class="sub">O roteiro completo do Luiz &amp; Renata pela Europa — ritmo leve, arquitetura e história, com a escala-bônus de um dia em <b>Amsterdam</b> na ida. Tudo pesquisado com preços reais.</p>
     <div class="chips">
@@ -229,7 +232,7 @@ footer a{color:#e7c887}
     <div class="seg" style="background:var(--viena)"><div class="d">4–6 OUT</div><div class="c">Viena</div><div class="n">2 noites · volta</div></div>
   </div>
   <div class="grid cols-3">
-    <div class="card stat"><span class="big">€3.270–4.600</span><span class="lbl">Gasto estimado do casal na viagem</span><span class="mini">≈ R$ 19,3 mil a R$ 27,1 mil · fora as passagens internacionais (já pagas)</span></div>
+    <div class="card stat"><span class="big">€3.500–4.600</span><span class="lbl">Gasto estimado do casal na viagem</span><span class="mini">≈ R$ 20,7 mil a R$ 27,1 mil · fora as passagens internacionais (já pagas)</span></div>
     <div class="card stat"><span class="big">~€450</span><span class="lbl">Transporte entre as 4 cidades (casal)</span><span class="mini">2 trens + 2 voos, comprando cedo</span></div>
     <div class="card stat"><span class="big">€1 ≈ R$5,90</span><span class="lbl">Câmbio usado nesta página</span><span class="mini">cotação ao vivo em 29/06/2026</span></div>
   </div>
@@ -240,7 +243,7 @@ footer a{color:#e7c887}
         <p class="mini" style="font-weight:700;color:var(--ink)">IDA · dom 20 set</p>
         <ul class="clean">
           <li>São Paulo (GRU) <b>18:00</b> → Amsterdam (AMS) <b>10:50+1</b> · LA8078</li>
-          <li><b>Escala de 9h15 em Amsterdam</b> → aproveitar a cidade ☑</li>
+          <li><b>Escala de 9h15 em Amsterdam</b> (~6h líquidas na cidade) → aproveitar ☑</li>
           <li>Amsterdam (AMS) <b>20:05</b> → Viena (VIE) <b>21:55</b> · OS318 (Austrian)</li>
         </ul>
       </div>
@@ -249,6 +252,7 @@ footer a{color:#e7c887}
         <ul class="clean">
           <li>Viena (VIE) <b>09:40</b> → Amsterdam (AMS) <b>11:35</b> · OS313</li>
           <li>Amsterdam (AMS) <b>13:10</b> → São Paulo (GRU) <b>20:10</b> · LA8079</li>
+          <li>⚠️ Conexão curta em Amsterdam (~1h35) com troca para área não-Schengen — siga direto ao portão, sem lojas.</li>
           <li>Saída cedo: do centro de Viena ~07:00 (voo internacional)</li>
         </ul>
       </div>
@@ -280,9 +284,9 @@ footer a{color:#e7c887}
         <div class="route">Praga → Paris <span class="tag-rec">voo</span></div>
         <div class="meta">27 set · Transavia (PRG→Orly, mais central) ou Smartwings/Air France (→CDG)</div>
         <span class="pill time">~1h50 voo</span>
-        <span class="pill price">€85+/pessoa</span> <span class="pill live">visto ao vivo</span>
+        <span class="pill price">~€45–90/pessoa</span> <span class="pill live">visto ao vivo</span>
         <span class="pill book">transavia.com · Skyscanner</span>
-        <p class="mini" style="margin-top:8px">Trem é inviável (~14h). Confira se há Transavia no dia (são poucos/semana) — senão, Smartwings/Air France p/ CDG. Evite Ryanair (Beauvais fica longe).</p>
+        <p class="mini" style="margin-top:8px">Trem é inviável (~14h). A Transavia voa PRG→Orly quase todo dia (~10–14×/semana); senão, Smartwings/Air France p/ CDG. Evite Ryanair (Beauvais fica longe).</p>
       </div>
     </div>
     <div class="leg">
@@ -326,12 +330,12 @@ footer a{color:#e7c887}
     <div class="callout warn">⚠️ <b>No check-in em GRU, confirme</b> que as malas despachadas vão <b>direto até Viena</b> e que vocês só carregam bagagem de mão na escala. Se as malas não forem até o destino, o plano de sair muda.</div>
     <div class="block-title"><span class="e">🕐</span> Linha do tempo da escala</div>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-date">10:50 · pouso + imigração</div><div class="tl-text">Desembarque no Schiphol, controle de fronteira Schengen (15–40 min) e saída para o Schiphol Plaza.</div></div>
-      <div class="tl-item"><div class="tl-date">11:40 · guardar a mochila</div><div class="tl-text">Baggage Depot do Schiphol (nível -1, área pública), ~€6/peça — deixa o passeio leve. (Peça o preço por escrito.)</div></div>
+      <div class="tl-item"><div class="tl-date">10:50 · pouso + imigração</div><div class="tl-text">Desembarque no Schiphol e controle de fronteira EES (45 min a 2h+ no pico — cadastro biométrico para não-UE desde abr/2026). <b>Regra:</b> só saia do aeroporto se passar até ~12:30; se a fila estiver longa, fique no Schiphol.</div></div>
+      <div class="tl-item"><div class="tl-date">11:40 · guardar a mochila</div><div class="tl-text">Baggage Depot do Schiphol (nível -1, área pública), ~€7/peça/dia — deixa o passeio leve. (Peça o preço por escrito.)</div></div>
       <div class="tl-item"><div class="tl-date">12:00 · trem ao centro</div><div class="tl-text">Schiphol → Amsterdam Centraal, ~17 min. Pague com cartão contactless (OVpay) ~€5,50–6,20/pessoa por trecho.</div></div>
-      <div class="tl-item"><div class="tl-date">12:30 · passeio de barco nos canais</div><div class="tl-text">1h pelos canais (Patrimônio UNESCO) — o melhor "resumo" de Amsterdam. <b>Rederij Plas ~€12,50</b> é o melhor custo-benefício (vs Stromma ~€17,50). Embarque ao lado da estação.</div></div>
+      <div class="tl-item"><div class="tl-date">12:30 · passeio de barco nos canais</div><div class="tl-text">1h pelos canais (Patrimônio UNESCO) — o melhor "resumo" de Amsterdam. <b>Rederij Plas ~€12,50</b> é o melhor custo-benefício (vs Stromma ~€21,50). Embarque ao lado da estação.</div></div>
       <div class="tl-item"><div class="tl-date">13:45 · almoço + Jordaan</div><div class="tl-text">Arenque (haring) ou um <i>bruin café</i>; caminhada pelo bairro Jordaan, casas do séc. XVII, e a fachada da Casa de Anne Frank (por fora — ingresso esgota).</div></div>
-      <div class="tl-item"><div class="tl-date">15:20 · um museu (opcional)</div><div class="tl-text"><b>Rijksmuseum</b> (Rembrandt, Vermeer; combina com arquitetura/história) ou <b>Van Gogh</b> — €25, com horário marcado <b>reservado de casa</b>. Ambos abrem segunda.</div></div>
+      <div class="tl-item"><div class="tl-date">15:20 · um museu (opcional)</div><div class="tl-text"><b>Rijksmuseum</b> (Rembrandt, Vermeer) ou <b>Van Gogh</b> — €25. <b>Opcional/condicional:</b> só faça se sair da imigração até ~12:30 (fica a ~10–12 min de tram da Centraal). Reserve um horário tardio e flexível (16:00+). Ambos abrem segunda.</div></div>
       <div class="tl-item"><div class="tl-date">17:30 · volta (limite!)</div><div class="tl-text">Pegue o trem de volta na Centraal <b>até 17:30</b> (chega Schiphol ~17:47). Estar na segurança ~2h antes do voo das 20:05.</div></div>
     </div>
     <div class="block-title"><span class="e">📸</span> O que ver</div>
@@ -344,7 +348,7 @@ footer a{color:#e7c887}
     <div class="costline">
       <div><b>~€85</b> atrações (barco + 1 museu, casal)</div>
       <div><b>~€38</b> trem + transporte</div>
-      <div><b>~€12</b> guarda-volumes</div>
+      <div><b>~€14</b> guarda-volumes</div>
       <div><b>~€60</b> comida leve</div>
     </div>
     <p class="note" style="margin-top:10px">Cansados do voo? Tudo bem ficar no aeroporto (tem lounges). Se o GRU→AMS atrasar, faça só os canais + Jordaan, sem museu — a margem para o voo é prioridade.</p>
@@ -385,13 +389,13 @@ footer a{color:#e7c887}
     </details>
     <div class="block-title"><span class="e">🗓️</span> Dia a dia</div>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-date"><span class="dow">SEG</span> · 21 set — chegada (só noite)</div><div class="tl-text">Pouso 21:55. Táxi/Bolt (~€35–40 o casal, prático com bagagem à noite) ou trem S7 (€5,40/pessoa). Check-in e dormir cedo.</div></div>
+      <div class="tl-item"><div class="tl-date"><span class="dow">SEG</span> · 21 set — chegada (só noite)</div><div class="tl-text">Pouso 21:55. Táxi/Bolt (~€35–40 o casal, prático com bagagem à noite). ⚠️ A S-Bahn do centro está em obras (set/2026–out/2027): o S7 não chega a Wien Mitte e o CAT vira ônibus. Alternativa de trem: Railjet/REX até Wien Hauptbahnhof + metrô. Check-in e dormir cedo.</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">TER</span> · 22 set — centro imperial</div><div class="tl-text">Catedral de Santo Estêvão (Stephansdom), Graben e Kohlmarkt, café vienense (Central ou Hawelka). Tarde: Hofburg + Museu Sisi.</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">QUA</span> · 23 set — Schönbrunn + Klimt</div><div class="tl-text">Manhã cedo no Palácio de Schönbrunn (reserve horário). Tarde no <b>Upper Belvedere</b> para ver "O Beijo" de Klimt. Jantar numa taverna (Beisl).</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">QUI</span> · 24 set — trem p/ Praga</div><div class="tl-text">Check-out e trem ao meio-dia para Praga (~4h).</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">DOM</span> · 4 out — volta a Viena</div><div class="tl-text">Chega de Barcelona à tarde. Re-check-in. MuseumsQuartier + Leopold Museum (aberto domingo). Jantar no charmoso Spittelberg (7º distrito).</div></div>
-      <div class="tl-item"><div class="tl-date"><span class="dow">SEG</span> · 5 out — Naschmarkt + cafés (ou Bratislava)</div><div class="tl-text">Naschmarkt de manhã, Karlskirche, cafés e compras na Mariahilfer Strasse. <b>OU</b> bate-volta a Bratislava (trem 59 min, €19 ida-volta). ⚠️ Albertina e o KHM fecham segunda — não programe-os hoje.</div></div>
-      <div class="tl-item"><div class="tl-date"><span class="dow">TER</span> · 6 out — partida</div><div class="tl-text">Voo 09:40. Saia do centro ~07:00 (CAT 16 min, ou S7, ou táxi).</div></div>
+      <div class="tl-item"><div class="tl-date"><span class="dow">SEG</span> · 5 out — Naschmarkt + cafés (ou Bratislava)</div><div class="tl-text">Naschmarkt de manhã, Karlskirche, cafés e compras na Mariahilfer Strasse. <b>OU</b> bate-volta a Bratislava (trem 59 min, €19 ida-volta). ⚠️ O KHM (Kunsthistorisches) fecha às segundas em outubro — não o programe hoje. A Albertina, porém, ABRE na segunda (10–18h) — ótima opção de tarde.</div></div>
+      <div class="tl-item"><div class="tl-date"><span class="dow">TER</span> · 6 out — partida</div><div class="tl-text">Voo 09:40. Saia do centro ~06:45–07:00. ⚠️ Com a S-Bahn em obras, o CAT opera como ônibus substituto — prefira táxi/Bolt (~€35–40) ou Railjet de Wien Hauptbahnhof. Reserve tempo extra.</div></div>
     </div>
     <div class="block-title"><span class="e">⭐</span> Imperdíveis</div>
     <div class="gallery">
@@ -401,17 +405,17 @@ footer a{color:#e7c887}
       <figure><img src="img/viena_hofburg.jpg" alt="Hofburg" loading="lazy"><figcaption>Hofburg</figcaption></figure>
     </div>
     <ul class="clean" style="margin-top:14px">
-      <li><b>Sisi Ticket €57/pessoa</b> — combina Schönbrunn (Grand Tour) + Hofburg + Museu Sisi (melhor combo).</li>
-      <li><b>Upper Belvedere</b> — "O Beijo" de Klimt · €19,50 comprado online.</li>
+      <li><b>Sisi Ticket €57/pessoa</b> — Schönbrunn (Grand Tour) + Museu Sisi/Aposentos Imperiais no Hofburg + Museu do Mobiliário. Vale 1 ano (dá pra usar em dias diferentes).</li>
+      <li><b>Upper Belvedere</b> — "O Beijo" de Klimt · €23 (online ou bilheteria).</li>
       <li><b>Stephansdom</b> — nave grátis; ticket completo €25 (torre/catacumbas), <b>só em dinheiro</b> no local.</li>
       <li><b>Karlskirche</b> €9,50 · <b>Café + Sachertorte</b> num Kaffeehaus clássico (Sacher, Central, Demel).</li>
     </ul>
     <div class="block-title"><span class="e">🚇</span> Transporte & dicas</div>
-    <div class="callout info">Os passes avulsos de 48h/72h foram <b>descontinuados em 2026</b>. Melhor opção: <b>bilhete de 7 dias digital (€25,20/pessoa)</b>, que cobre toda a estadia dividida nos 2 períodos. Aeroporto: S7 €5,40/pessoa ou CAT €14,90.</div>
+    <div class="callout info">⚠️ <b>S-Bahn em obras (07/set/2026–31/out/2027):</b> o S7 não chega a Wien Mitte (termina em St. Marx) e o CAT vira ônibus substituto. Do aeroporto, use <b>Railjet/REX até Wien Hauptbahnhof</b> (~15–20 min) + metrô, ou táxi/Bolt (~€35–40 o casal). Na cidade: os passes avulsos de 48h/72h foram descontinuados em 2026 — melhor é o <b>bilhete de 7 dias (€28,90/pessoa, um pouco menos no app)</b>, que cobre toda a estadia nos 2 períodos.</div>
     <div class="costline">
       <div><b>~€550</b> hotel (5 noites)</div>
-      <div><b>~€230</b> atrações (casal)</div>
-      <div><b>~€50</b> transporte 7 dias (2×)</div>
+      <div><b>~€245</b> atrações (casal)</div>
+      <div><b>~€58</b> transporte 7 dias (2×)</div>
       <div><b>~€60–75</b> comida/dia</div>
     </div>
   </div>
@@ -432,7 +436,7 @@ footer a{color:#e7c887}
     <div class="block-title"><span class="e">🏨</span> Onde ficar</div>
     <div class="hotel top">
       <div class="hname">Cloister Inn Hotel <span style="font-size:11px;color:var(--gold-d)">★ TOP PICK</span></div>
-      <div class="score">8.6</div>
+      <div class="score">8.4</div>
       <div class="where">Stare Mesto (rua silenciosa) · 5 min da Ponte Carlos e do Relógio Astronômico</div>
       <div class="why">Localização imbatível, café da manhã incluído, ar-condicionado. Custo-benefício clássico, tudo a pé.</div>
       <div class="row">
@@ -451,7 +455,7 @@ footer a{color:#e7c887}
     <div class="block-title"><span class="e">🗓️</span> Dia a dia</div>
     <div class="timeline">
       <div class="tl-item"><div class="tl-date"><span class="dow">QUI</span> · 24 set — chegada</div><div class="tl-text">Trem de Viena chega à tarde (15 min a pé ou 1 metrô até o hotel). Primeira caminhada pela Praça da Cidade Velha, Relógio Astronômico por fora (show de rua grátis a cada hora) e Igreja de Týn. Jantar tranquilo.</div></div>
-      <div class="tl-item"><div class="tl-date"><span class="dow">SEX</span> · 25 set — Castelo, Ponte Carlos e bairro judeu</div><div class="tl-text">Atravesse a <b>Ponte Carlos antes das 9h</b> (sem multidão). Suba a Mala Strana até o <b>Castelo</b> (Circuito B €18: Catedral de São Vito, Palácio Real, Beco Dourado). Tarde no bairro judeu (Josefov) — <b>visite hoje</b>, pois o Museu Judaico fecha aos sábados.</div></div>
+      <div class="tl-item"><div class="tl-date"><span class="dow">SEX</span> · 25 set — Castelo, Ponte Carlos e bairro judeu</div><div class="tl-text">Atravesse a <b>Ponte Carlos antes das 9h</b> (sem multidão). Suba a Mala Strana até o <b>Castelo</b> (Circuito B €18: Catedral de São Vito, Palácio Real, Beco Dourado). Tarde no bairro judeu (Josefov) — Museu Judaico ~620 CZK/€25 por pessoa (sinagogas + cemitério); <b>visite hoje</b>, pois fecha aos sábados. É o dia mais cheio — comecem ~8h pela Ponte Carlos.</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">SAB</span> · 26 set — Cidade Velha + mirantes (ou Kutná Hora)</div><div class="tl-text">Torre da Velha Ponte (€10, vista linda), Casa Municipal, Torre da Pólvora, biblioteca barroca do Klementinum. <b>OU</b> bate-volta a <b>Kutná Hora</b> (trem ~50 min) para a Igreja de Ossos. ⚠️ Museu Judaico fechado hoje.</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">DOM</span> · 27 set — voo p/ Paris</div><div class="tl-text">Café da manhã, check-out e traslado ao aeroporto (ônibus 119 + metrô, ou Bolt). Voo para Paris.</div></div>
     </div>
@@ -472,7 +476,7 @@ footer a{color:#e7c887}
     </ul>
     <div class="costline">
       <div><b>~€330</b> hotel (3 noites)</div>
-      <div><b>~€150</b> atrações (casal)</div>
+      <div><b>~€165</b> atrações (casal)</div>
       <div><b>~€20</b> transporte local</div>
       <div><b>~€40–60</b> comida/dia</div>
     </div>
@@ -516,7 +520,7 @@ footer a{color:#e7c887}
       <div class="tl-item"><div class="tl-date"><span class="dow">DOM</span> · 27 set — chegada</div><div class="tl-text">Voo de Praga chega à tarde/noite. Check-in no Marais. Programa leve: caminhada pela place des Vosges e ruas medievais, ou Notre-Dame por fora à beira do Sena. Compre o cartão <b>Navigo Easy</b> (€2).</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">SEG</span> · 28 set — Louvre + Marais</div><div class="tl-text">Louvre logo na abertura (ingresso com horário, €32 p/ brasileiros). Foque 2,5–3h nas obras-chave. Saída pelas Tuileries. Tarde de Marais com calma.</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">TER</span> · 29 set — Orsay + Montmartre</div><div class="tl-text">Manhã no Musée d'Orsay (€16, impressionistas). Tarde subindo Montmartre: Sacré-Cœur (grátis, vista de Paris), place du Tertre, pôr do sol.</div></div>
-      <div class="tl-item"><div class="tl-date"><span class="dow">QUA</span> · 30 set — Torre Eiffel + Sena (ou Versalhes)</div><div class="tl-text">Manhã na Torre Eiffel (foto no Trocadéro; subir de escada ao 2º €14,80 ou elevador €23,50). Tarde: barco no Sena (~€17) e Île de la Cité — Sainte-Chapelle e Notre-Dame. <b>Alternativa:</b> bate-volta a Versalhes (RER C €4,40/trecho).</div></div>
+      <div class="tl-item"><div class="tl-date"><span class="dow">QUA</span> · 30 set — Torre Eiffel + Sena (ou Versalhes)</div><div class="tl-text">Manhã na Torre Eiffel — foto no Trocadéro; escada ao 2º €14,80 ou elevador €23,50. <b>Reserve horário</b> (desde 29/set/2026 até os bilhetes de escada exigem hora marcada). Tarde: barco no Sena (~€17). <b>Alternativa:</b> bate-volta a Versalhes (RER C €4,40/trecho). Sainte-Chapelle e Notre-Dame ficam melhor na chegada (dom) ou após o Orsay (ter), para não lotar a quarta.</div></div>
       <div class="tl-item"><div class="tl-date"><span class="dow">QUI</span> · 1 out — TGV p/ Barcelona</div><div class="tl-text">Check-out. Manhã livre (Jardin du Luxembourg ou Marais) e TGV das 07:42/manhã para Barcelona.</div></div>
     </div>
     <div class="block-title"><span class="e">⭐</span> Imperdíveis</div>
@@ -591,15 +595,15 @@ footer a{color:#e7c887}
       <figure><img src="img/bcn_gotic.jpg" alt="Bairro Gótico" loading="lazy"><figcaption>Bairro Gótico</figcaption></figure>
     </div>
     <ul class="clean" style="margin-top:14px">
-      <li><b>Sagrada Família</b> ~€26 (básica) / ~€36 (com torres) + possível taxa centenário · <a href="https://sagradafamilia.org/en/tickets" target="_blank" rel="noopener">ingresso oficial ↗</a></li>
-      <li><b>Park Güell</b> ~€15–18 (zona monumental, horário marcado) · <a href="https://parkguell.barcelona/en" target="_blank" rel="noopener">oficial ↗</a></li>
+      <li><b>Sagrada Família</b> ~€26 (básica) / ~€36 (com torres) + taxa centenário +€2–5/pessoa (jun–dez 2026, confirmada) · <a href="https://sagradafamilia.org/en/tickets" target="_blank" rel="noopener">ingresso oficial ↗</a></li>
+      <li><b>Park Güell</b> ~€18 (zona monumental, horário marcado) · <a href="https://parkguell.barcelona/en" target="_blank" rel="noopener">oficial ↗</a></li>
       <li><b>Casa Batlló</b> ~€29 · <b>La Pedrera</b> ~€29 — pelo menos veja por fora.</li>
       <li>La Boqueria, Barri Gòtic e a praia de Barceloneta são de graça.</li>
     </ul>
     <div class="callout warn" style="margin-top:8px">👜 <b>Batedores de carteira:</b> foco em La Rambla, La Boqueria, Gótico, Pl. Catalunya e no metrô. Bolsa cruzada na frente, celular em bolso interno. Recuse "ajuda" de estranhos e golpes (pulseira grátis, abaixo-assinado).</div>
     <div class="costline">
       <div><b>~€390</b> hotel (3 noites)</div>
-      <div><b>~€140</b> atrações (casal)</div>
+      <div><b>~€120–230</b> atrações (casal)</div>
       <div><b>~€35</b> transporte local</div>
       <div><b>~€50–80</b> comida/dia</div>
     </div>
@@ -616,17 +620,17 @@ footer a{color:#e7c887}
     <table>
       <thead><tr><th>Item</th><th class="num">Econômico</th><th class="num">Conforto</th></tr></thead>
       <tbody>
-        <tr><td>🏨 Hospedagem (15 noites)</td><td class="num">€1.150<span class="brl">R$ 6.785</span></td><td class="num">€1.730<span class="brl">R$ 10.207</span></td></tr>
+        <tr><td>🏨 Hospedagem (15 noites)</td><td class="num">€1.380<span class="brl">R$ 8.142</span></td><td class="num">€1.730<span class="brl">R$ 10.207</span></td></tr>
         <tr><td>🚆 Transporte entre cidades</td><td class="num">€330<span class="brl">R$ 1.947</span></td><td class="num">€500<span class="brl">R$ 2.950</span></td></tr>
         <tr><td>🍽️ Alimentação (16 dias)</td><td class="num">€880<span class="brl">R$ 5.192</span></td><td class="num">€1.150<span class="brl">R$ 6.785</span></td></tr>
         <tr><td>🚇 Transporte local + traslados</td><td class="num">€200<span class="brl">R$ 1.180</span></td><td class="num">€260<span class="brl">R$ 1.534</span></td></tr>
         <tr><td>🎟️ Atrações e ingressos</td><td class="num">€650<span class="brl">R$ 3.835</span></td><td class="num">€870<span class="brl">R$ 5.133</span></td></tr>
         <tr><td>📱 eSIM + extras</td><td class="num">€60<span class="brl">R$ 354</span></td><td class="num">€90<span class="brl">R$ 531</span></td></tr>
-        <tr class="total"><td>Total do casal</td><td class="num">≈ €3.270<span class="brl">R$ 19.293</span></td><td class="num">≈ €4.600<span class="brl">R$ 27.140</span></td></tr>
+        <tr class="total"><td>Total do casal</td><td class="num">≈ €3.500<span class="brl">R$ 20.650</span></td><td class="num">≈ €4.600<span class="brl">R$ 27.140</span></td></tr>
       </tbody>
     </table>
   </div>
-  <p class="note" style="margin-top:12px">Por pessoa: ~€1.635 (econômico) a ~€2.300 (conforto). Os preços de hotel e voo foram <b>conferidos ao vivo</b> nas suas datas (Booking e Google Flights) — veja as faixas em cada cidade. Reserve cedo: out em Barcelona e fim de set em Paris são alta temporada.</p>
+  <p class="note" style="margin-top:12px">Por pessoa: ~€1.750 (econômico) a ~€2.300 (conforto). Os preços de hotel e voo foram <b>conferidos ao vivo</b> nas suas datas (Booking e Google Flights) — veja as faixas em cada cidade. Reserve cedo: out em Barcelona e fim de set em Paris são alta temporada.</p>
 </div></section>
 
 <section id="dicas"><div class="wrap">
@@ -687,9 +691,9 @@ var obs=new IntersectionObserver(function(es){
 ['resumo','rota','amsterdam','viena','praga','paris','barcelona','orcamento','dicas'].forEach(function(id){
   var el=document.getElementById(id); if(el) obs.observe(el);
 });
-var top=document.getElementById('top');
-addEventListener('scroll',function(){ top.classList.toggle('show', scrollY>700); });
-top.onclick=function(){ scrollTo({top:0,behavior:'smooth'}); };
+var btnTop=document.getElementById('top');
+addEventListener('scroll',function(){ btnTop.classList.toggle('show', scrollY>700); });
+btnTop.onclick=function(){ scrollTo({top:0,behavior:'smooth'}); };
 </script>
 </body>
 </html>
