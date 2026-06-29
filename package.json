@@ -1,0 +1,25 @@
+{
+  "name": "viagem-europa",
+  "version": "1.0.0",
+  "description": "Site estatico do roteiro de viagem (Viena, Praga, Paris, Barcelona + escala Amsterdam). Publicado em https://viagem.xalalobot.tech",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Loiz1234/viagem-europa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Loiz1234/viagem-europa/issues"
+  },
+  "homepage": "https://github.com/Loiz1234/viagem-europa#readme",
+  "dependencies": {
+    "playwright": "^1.61.1",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
