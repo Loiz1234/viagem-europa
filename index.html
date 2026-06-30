@@ -196,6 +196,7 @@ footer a{color:#e7c887}
       <a href="#paris">Paris</a>
       <a href="#barcelona">Barcelona</a>
       <a href="#orcamento">Orçamento</a>
+      <a href="#cenarios">Cenários</a>
       <a href="#dicas">Dicas</a>
     </nav>
   </div>
@@ -635,6 +636,28 @@ footer a{color:#e7c887}
   <p class="note" style="margin-top:12px">Por pessoa: ~€1.425 (econômico) a ~€2.690 (conforto). <b>Modo preço:</b> hotéis ≤R$750/noite, comida enxuta, atrações só o essencial, eSIM cortado. Hotéis e tarifas de voo foram <b>conferidos ao vivo</b> nas suas datas (Booking, Google Flights, API RegioJet/Ryanair); os voos já contam <b>1 mala despachada por pessoa</b>. Reserve cedo: out em Barcelona e fim de set em Paris são alta temporada.</p>
 </div></section>
 
+<section id="cenarios" style="background:#f3ecdf"><div class="wrap">
+  <div class="sec-head">
+    <span class="kicker">Compare e escolha</span>
+    <h2>Cenários — todos com preço pesquisado ao vivo</h2>
+    <p>Montei as variações que fazem sentido. Como os hotéis que achei são todos baratos, as diferenças ficam pequenas — o que mais mexe no custo é a <b>data do voo BCN→Viena</b>. Valores = casal, viagem inteira (fora as passagens já pagas).</p>
+  </div>
+  <div class="budget">
+    <table>
+      <thead><tr><th>Cenário</th><th class="num">Vie·Pra·Par·Bcn</th><th class="num">Total casal</th></tr></thead>
+      <tbody>
+        <tr class="total"><td>⭐ Recomendado (atual)</td><td class="num">3·3·5·4</td><td class="num">€2.852<span class="brl">R$ 16.827</span></td></tr>
+        <tr><td>Menos Paris, mais Praga (4n Paris)</td><td class="num">3·4·4·4</td><td class="num">€2.828<span class="brl">R$ 16.685</span></td></tr>
+        <tr><td>Mais Viena</td><td class="num">4·3·4·4</td><td class="num">€2.866<span class="brl">R$ 16.909</span></td></tr>
+        <tr><td>3 noites em Barcelona + 6 em Paris (voo dia 04 meio-dia)</td><td class="num">3·3·6·3</td><td class="num">€3.066<span class="brl">R$ 18.089</span></td></tr>
+        <tr><td>3 noites em Barcelona + voo dia 04 às 05:45</td><td class="num">3·3·6·3</td><td class="num">€2.848<span class="brl">R$ 16.803</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout info" style="margin-top:14px">💡 <b>Achado contraintuitivo:</b> como Barcelona virou o hotel <b>mais barato</b> (€50/noite, Hola Hostal Eixample), <b>cortar noites de Barcelona NÃO economiza</b> — a noite vai pra uma cidade mais cara. E ficar até <b>dia 05</b> garante o voo Vueling €58 (meio-dia); sair dia 04 num horário decente custa ~€170 a mais (casal). Por isso o recomendado é Barcelona 4 noites + voo dia 05. Só o voo das 05:45 (madrugada) baratearia, mas aí você perde o conforto. Reordenar cidades não muda o preço.</div>
+  <p class="note" style="margin-top:10px">Todos os preços vêm de busca ao vivo nas suas datas: hotéis no Booking (€/noite real), voos no Google Flights + API Ryanair, trem RegioJet por API. Quer que eu fixe algum desses cenários como o oficial? É só dizer.</p>
+</div></section>
+
 <section id="dicas"><div class="wrap">
   <div class="sec-head">
     <span class="kicker">Antes de viajar</span>
@@ -694,7 +717,7 @@ var obs=new IntersectionObserver(function(es){
     var id=e.target.id; if(map[id]){ map[id].classList.add('active'); map[id].scrollIntoView({block:'nearest',inline:'center'}); }
   }});
 },{rootMargin:'-45% 0px -50% 0px'});
-['resumo','rota','amsterdam','viena','praga','paris','barcelona','orcamento','dicas'].forEach(function(id){
+['resumo','rota','amsterdam','viena','praga','paris','barcelona','orcamento','cenarios','dicas'].forEach(function(id){
   var el=document.getElementById(id); if(el) obs.observe(el);
 });
 var btnTop=document.getElementById('top');
