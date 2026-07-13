@@ -3,3 +3,4 @@ proof/
 node_modules/
 __pycache__/
 *.pyc
+docs/
